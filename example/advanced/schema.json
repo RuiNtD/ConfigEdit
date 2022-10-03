@@ -1,0 +1,21 @@
+{
+  "title": "Example Config",
+  "type": "object",
+  "required": [
+    "_VERSION",
+    "username"
+  ],
+  "properties": {
+    "_VERSION": {
+      "title": "Configuration Version",
+      "type": "integer",
+      "readonly": true,
+      "default": 2,
+      "minimum": 2,
+      "maximum": 2
+    },
+    "username": {
+      "type": "string"
+    }
+  }
+}
