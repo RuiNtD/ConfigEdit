@@ -9,7 +9,7 @@ const thisDir = new URL(".", import.meta.url);
 export default async function openConfigEdit(opts: {
   configPath?: string;
   schemaPath?: string;
-  schema?: any;
+  schema?: Record<string, any>;
   customSave?: (data: any) => void;
   customLoad?: () => any;
 }): Promise<void> {
@@ -30,7 +30,6 @@ export default async function openConfigEdit(opts: {
       // deno-lint-ignore no-empty
     } catch {}
     if (!schemaURL && opts.schemaPath) schemaURL = pathToUrl(opts.schemaPath);
-    console.log(schemaURL?.href);
     if (schemaURL) schema = await (await fetch(schemaURL)).json();
   }
 
