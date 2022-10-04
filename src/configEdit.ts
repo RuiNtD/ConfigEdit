@@ -2,7 +2,6 @@
 import { Webview } from "https://deno.land/x/webview@0.7.5/mod.ts";
 import { resolve, toFileUrl } from "https://deno.land/std@0.153.0/path/mod.ts";
 import { pathToUrl } from "./urlConversions.ts";
-import { Schema } from "https://deno.land/std@0.158.0/encoding/_yaml/schema.ts";
 
 const thisDir = new URL(".", import.meta.url);
 
