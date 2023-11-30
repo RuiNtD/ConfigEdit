@@ -6,7 +6,7 @@ export default openConfigEdit;
 if (import.meta.main) {
   const { args, options } = await new Command()
     .name("ConfigEdit")
-    .version("1.0.3")
+    .version("1.0.4")
     .option("-s, --schema <path:string>", "JSON Schema path")
     .arguments("<config...>")
     .parse(Deno.args);

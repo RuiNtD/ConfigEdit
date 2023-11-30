@@ -2,22 +2,25 @@
 import { Webview } from "https://deno.land/x/webview@0.7.6/mod.ts";
 import { resolve, toFileUrl } from "https://deno.land/std@0.208.0/path/mod.ts";
 import { pathToUrl } from "./urlConversions.ts";
+// @deno-types="npm:@types/json-editor"
+export { type JSONEditorOptions } from "npm:@json-editor/json-editor";
 
 const thisDir = new URL(".", import.meta.url);
 
-export default async function openConfigEdit(opts: {
+export default async function openConfigEdit<T>(opts: {
   configPath?: string;
   schemaPath?: string;
   schema?: Record<string, any>;
-  customSave?: (data: any) => void;
-  customLoad?: () => any;
+  customSave?: (data: T) => void;
+  customLoad?: () => T;
+  editorOptions?: JSONEditorOptions<T>;
 }): Promise<void> {
   let schema: unknown = undefined;
-  let schemaURL: URL | undefined;
   const configPath = resolve(opts.configPath || "config.json");
 
   if (opts.schema) schema = opts.schema;
   else {
+    let schemaURL: URL | undefined;
     try {
       const file = await Deno.readTextFile(configPath);
       const json = JSON.parse(file);
@@ -32,12 +35,29 @@ export default async function openConfigEdit(opts: {
     if (schemaURL) schema = await (await fetch(schemaURL)).json();
   }
 
-  if (!schema) schema = {};
+  let startval: T | undefined;
+  try {
+    startval = load();
+  } catch (e) {
+    if (e instanceof Deno.errors.NotFound) console.log("Config not found");
+    else console.error(`Failed to load config: ${e}`);
+  }
+
+  const editorOptions = {
+    ...{
+      schema,
+      startval,
+      // https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/67566
+      theme: "spectre",
+      iconlib: "spectre",
+    },
+    ...opts.editorOptions,
+  } as JSONEditorOptions<T>;
 
   let html = await (await fetch(new URL("index.html", thisDir))).text();
   html = html.replace(
-    /^\s*import schema.*$/m,
-    `const schema = ${JSON.stringify(schema)};`
+    /^\s*const editorOptions = .*$/m,
+    `const editorOptions = ${JSON.stringify(editorOptions)};`
   );
 
   const webview = new Webview();
@@ -46,15 +66,23 @@ export default async function openConfigEdit(opts: {
 
   webview.bind("wvSave", (data) => {
     console.log("Saving Config", data);
-    if (opts.customSave) opts.customSave(data);
-    else Deno.writeTextFileSync(configPath, JSON.stringify(data, null, 2));
+    save(data);
   });
 
   webview.bind("wvLoad", () => {
     console.log("Loading Config");
+    return load();
+  });
+
+  function save(data: T) {
+    if (opts.customSave) opts.customSave(data);
+    else Deno.writeTextFileSync(configPath, JSON.stringify(data, null, 2));
+  }
+
+  function load(): T {
     if (opts.customLoad) return opts.customLoad();
     else return JSON.parse(Deno.readTextFileSync(configPath));
-  });
+  }
 
   console.log("Opening Config Editor");
   webview.run();

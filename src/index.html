@@ -59,15 +59,9 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/nonmin/jsoneditor.js"></script>
     <script type="module">
-      import schema from "./schema.json" assert { type: "json" };
+      const editorOptions = {};
       const $ = document.querySelector.bind(document);
-      const editor = new JSONEditor($("#editor"), {
-        schema,
-        theme: "spectre",
-        iconlib: "spectre",
-        //no_additional_properties: true,
-        // show_opt_in: true,
-      });
+      const editor = new JSONEditor($("#editor"), editorOptions);
       editor.on("change", () => {
         $("#save-btn").disabled = editor.validate().length > 0;
       });
@@ -85,6 +79,7 @@
       $("#load-btn").onclick = async () => {
         try {
           editor.setValue(await wvLoad());
+          editor.validate();
         } catch (e) {
           console.error("Failed to load", e);
           if (e.name == "NotFound") alert("Failed to load: Config not found");
@@ -95,14 +90,6 @@
       $("#reset-btn").onclick = () => editor.setValue({});
 
       editor.on("ready", async () => {
-        try {
-          console.log("Comitting load");
-          let dat = await wvLoad();
-          console.log(dat);
-          editor.setValue(dat);
-        } catch (e) {
-          console.error("First load failed", e);
-        }
         editor.validate();
       });
     </script>
