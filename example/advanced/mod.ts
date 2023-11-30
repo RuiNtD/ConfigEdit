@@ -15,7 +15,7 @@ try {
       conf.username = conf.name;
       delete conf.name;
   }
-  conf._VERSION = 2;
+  conf._VERSION = 3;
   Deno.writeTextFile(configPath, YAML.stringify(conf));
   // deno-lint-ignore no-empty
 } catch {}

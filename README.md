@@ -17,5 +17,5 @@ The user can override the config being edited by adding it as an argument to the
 ---
 
 You can also call the API directly from your own code, if you need to make some extra modifications.
-See [example/advanced/mod.ts](example/advanced/mod.ts) for an advanced example
-using YAML and version migration.
+See [example/advanced](example/advanced) for an advanced example
+using YAML, version migration, and HTML in the schema.

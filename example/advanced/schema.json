@@ -1,21 +1,23 @@
 {
   "title": "Example Config",
   "type": "object",
-  "required": [
-    "_VERSION",
-    "username"
-  ],
+  "required": ["_VERSION", "username"],
   "properties": {
     "_VERSION": {
       "title": "Configuration Version",
       "type": "integer",
       "readonly": true,
-      "default": 2,
-      "minimum": 2,
-      "maximum": 2
+      "default": 3,
+      "minimum": 3,
+      "maximum": 3
     },
     "username": {
       "type": "string"
+    },
+    "apikey": {
+      "title": "API Key",
+      "type": "string",
+      "description": "Requires <a href='https://example.com'>an API key</a>"
     }
   }
 }

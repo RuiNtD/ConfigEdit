@@ -37,6 +37,7 @@
       </div>
     </nav>
     <div id="editor" class="container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/nonmin/jsoneditor.js"></script>
     <script type="module">
       import schema from "./schema.json" assert { type: "json" };
@@ -45,9 +46,9 @@
         schema,
         theme: "bootstrap5",
         //no_additional_properties: true,
-        //show_opt_in: true,
-        // disable_edit_json: true,
-        // disable_properties: true,
+        show_opt_in: true,
+        disable_edit_json: true,
+        disable_properties: true,
       });
       editor.on("change", () => {
         $("#save-btn").disabled = editor.validate().length > 0;
