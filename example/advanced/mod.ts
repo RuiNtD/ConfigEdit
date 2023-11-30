@@ -1,4 +1,4 @@
-// deno-lint-ignore-file no-explicit-any
+// deno-lint-ignore-file no-explicit-any no-fallthrough
 
 import openConfigEdit from "../../mod.ts";
 import { join, fromFileUrl } from "https://deno.land/std@0.208.0/path/mod.ts";
@@ -14,9 +14,10 @@ try {
     case 1:
       conf.username = conf.name;
       delete conf.name;
+    case 2:
+      conf._VERSION = 3;
+      await Deno.writeTextFile(configPath, YAML.stringify(conf));
   }
-  conf._VERSION = 3;
-  Deno.writeTextFile(configPath, YAML.stringify(conf));
   // deno-lint-ignore no-empty
 } catch {}
 

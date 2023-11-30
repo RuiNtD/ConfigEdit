@@ -9,7 +9,10 @@
       "readonly": true,
       "default": 3,
       "minimum": 3,
-      "maximum": 3
+      "maximum": 3,
+      "options": {
+        "hidden": true
+      }
     },
     "username": {
       "type": "string"
