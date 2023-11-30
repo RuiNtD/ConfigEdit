@@ -1,9 +1,9 @@
 // deno-lint-ignore-file no-explicit-any
 
 import openConfigEdit from "../../mod.ts";
-import { join, fromFileUrl } from "https://deno.land/std@0.153.0/path/mod.ts";
+import { join, fromFileUrl } from "https://deno.land/std@0.208.0/path/mod.ts";
 import schema from "./schema.json" assert { type: "json" };
-import * as YAML from "https://deno.land/std@0.158.0/encoding/yaml.ts";
+import * as YAML from "https://deno.land/std@0.208.0/yaml/mod.ts";
 
 const thisDir = fromFileUrl(new URL(".", import.meta.url));
 const configPath = join(thisDir, "config.yml");

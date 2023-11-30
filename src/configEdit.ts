@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
-import { Webview } from "https://deno.land/x/webview@0.7.5/mod.ts";
-import { resolve, toFileUrl } from "https://deno.land/std@0.153.0/path/mod.ts";
+import { Webview } from "https://deno.land/x/webview@0.7.6/mod.ts";
+import { resolve, toFileUrl } from "https://deno.land/std@0.208.0/path/mod.ts";
 import { pathToUrl } from "./urlConversions.ts";
 
 const thisDir = new URL(".", import.meta.url);

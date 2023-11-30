@@ -2,7 +2,7 @@ import {
   toFileUrl,
   fromFileUrl,
   resolve,
-} from "https://deno.land/std@0.153.0/path/mod.ts";
+} from "https://deno.land/std@0.208.0/path/mod.ts";
 
 export function urlToPath(url: string | URL): string {
   try {
