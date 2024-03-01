@@ -1,5 +1,5 @@
 {
-  "name": "configedit",
+  "name": "@ruintd/configedit",
   "version": "1.0.5",
   "exports": "./src/mod.ts",
   "imports": {
