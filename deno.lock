@@ -1,0 +1,50 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@std/assert@^0.218.2": "jsr:@std/assert@0.218.2",
+      "jsr:@std/path@0.218.2": "jsr:@std/path@0.218.2",
+      "jsr:@std/yaml@^0.218.2": "jsr:@std/yaml@0.218.2",
+      "npm:@json-editor/json-editor": "npm:@json-editor/json-editor@2.14.1",
+      "npm:@types/json-editor": "npm:@types/json-editor@0.0.10"
+    },
+    "jsr": {
+      "@std/assert@0.218.2": {
+        "integrity": "7f0a5a1a8cf86607cd6c2c030584096e1ffad27fc9271429a8cb48cfbdee5eaf"
+      },
+      "@std/path@0.218.2": {
+        "integrity": "b568fd923d9e53ad76d17c513e7310bda8e755a3e825e6289a0ce536404e2662",
+        "dependencies": [
+          "jsr:@std/assert@^0.218.2"
+        ]
+      },
+      "@std/yaml@0.218.2": {
+        "integrity": "82278eb3ce7491e2c3280d926973a8c3f71d25dd3f187c133b33f5c83ea17a5a"
+      }
+    },
+    "npm": {
+      "@json-editor/json-editor@2.14.1": {
+        "integrity": "sha512-Q6ACH6bHYtOCtM8AElkwzLYlTt9wzwzea2+ju40cl+s2IH0nM2r9nq3EX9jxSO9/oWJstJLnyuV95vomtSZYqw==",
+        "dependencies": {
+          "core-js": "core-js@3.36.0"
+        }
+      },
+      "@types/json-editor@0.0.10": {
+        "integrity": "sha512-zVE3AH4z5+kCxOcxwORNNpsCtvf+PWDijUsnYpfpoWmk5AxPqiEPOYkszWosrkHcPaK5+StOv4iuJ/ygXlGeFQ==",
+        "dependencies": {}
+      },
+      "core-js@3.36.0": {
+        "integrity": "sha512-mt7+TUBbTFg5+GngsAxeKBTl5/VS0guFeJacYge9OmHb+m058UwwIm41SE9T4Den7ClatV57B6TYTuJ0CX1MAw==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/path@0.218.2",
+      "jsr:@std/yaml@^0.218.2",
+      "npm:@json-editor/json-editor"
+    ]
+  }
+}

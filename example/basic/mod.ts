@@ -1,6 +1,6 @@
-import openConfigEditor from "../../mod.ts";
-import schema from "./schema.json" assert { type: "json" };
-import { fromFileUrl, join } from "https://deno.land/std@0.208.0/path/mod.ts";
+import openConfigEditor from "../../src/mod.ts";
+import schema from "./schema.json" with { type: "json" };
+import { fromFileUrl, join } from "@std/path";
 
 const thisDir = fromFileUrl(new URL(".", import.meta.url));
 const configPath = join(thisDir, "config.json");

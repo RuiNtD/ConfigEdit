@@ -1,8 +1,4 @@
-import {
-  toFileUrl,
-  fromFileUrl,
-  resolve,
-} from "https://deno.land/std@0.208.0/path/mod.ts";
+import { toFileUrl, fromFileUrl, resolve } from "@std/path";
 
 export function urlToPath(url: string | URL): string {
   try {

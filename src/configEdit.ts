@@ -1,9 +1,9 @@
 // deno-lint-ignore-file no-explicit-any
-import { Webview } from "https://deno.land/x/webview@0.7.6/mod.ts";
-import { resolve, toFileUrl } from "https://deno.land/std@0.208.0/path/mod.ts";
+import { Webview } from "webview";
+import { resolve, toFileUrl } from "@std/path";
 import { pathToUrl } from "./urlConversions.ts";
 // @deno-types="npm:@types/json-editor"
-export { type JSONEditorOptions } from "npm:@json-editor/json-editor";
+export { type JSONEditorOptions } from "@json-editor/json-editor";
 
 const thisDir = new URL(".", import.meta.url);
 
@@ -27,7 +27,7 @@ export default async function openConfigEdit<T>(opts: {
       if (json["$schema"])
         schemaURL = pathToUrl(
           json["$schema"],
-          new URL(".", toFileUrl(configPath))
+          new URL(".", toFileUrl(configPath)),
         );
       // deno-lint-ignore no-empty
     } catch {}
@@ -57,7 +57,7 @@ export default async function openConfigEdit<T>(opts: {
   let html = await (await fetch(new URL("index.html", thisDir))).text();
   html = html.replace(
     /^\s*const editorOptions = .*$/m,
-    `const editorOptions = ${JSON.stringify(editorOptions)};`
+    `const editorOptions = ${JSON.stringify(editorOptions)};`,
   );
 
   const webview = new Webview();

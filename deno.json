@@ -1,0 +1,12 @@
+{
+  "name": "configedit",
+  "version": "1.0.5",
+  "exports": "./src/mod.ts",
+  "imports": {
+    "@json-editor/json-editor": "npm:@json-editor/json-editor",
+    "@std/path": "jsr:@std/path@0.218.2",
+    "@std/yaml": "jsr:@std/yaml@^0.218.2",
+    "cliffy/": "https://deno.land/x/cliffy@v1.0.0-rc.3/",
+    "webview": "https://deno.land/x/webview@0.7.6/mod.ts"
+  }
+}
