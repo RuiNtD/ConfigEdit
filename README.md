@@ -8,7 +8,7 @@ This library is mainly meant to included within other applications for easy conf
 You can compile ConfigEdit into an executable with `deno compile`:
 
 ```
-deno compile -A --unstable https://deno.land/x/configedit/mod.ts --schema src/schema.json config.json
+deno compile -A --unstable-ffi jsr:@ruintd/configedit --schema src/schema.json config.json
 ```
 
 The user can override the config being edited by adding it as an argument to the compiled app

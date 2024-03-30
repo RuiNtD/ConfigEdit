@@ -1,6 +1,6 @@
 {
   "name": "@ruintd/configedit",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "exports": "./src/mod.ts",
   "imports": {
     "@json-editor/json-editor": "npm:@json-editor/json-editor@^2.14.1",
