@@ -2,6 +2,7 @@
 import { Webview } from "@webview/webview";
 import { resolve, toFileUrl } from "@std/path";
 import { pathToUrl } from "./urlConversions.ts";
+// @deno-types="npm:@types/json-editor"
 export { type JSONEditorOptions } from "@json-editor/json-editor";
 
 const thisDir = new URL(".", import.meta.url);
