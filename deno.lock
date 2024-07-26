@@ -4,16 +4,15 @@
     "specifiers": {
       "jsr:@denosaurs/plug@^1.0.5": "jsr:@denosaurs/plug@1.0.5",
       "jsr:@std/assert@^0.214.0": "jsr:@std/assert@0.214.0",
-      "jsr:@std/assert@^0.221.0": "jsr:@std/assert@0.221.0",
-      "jsr:@std/cli@^0.221.0": "jsr:@std/cli@0.221.0",
       "jsr:@std/encoding@0.214": "jsr:@std/encoding@0.214.0",
       "jsr:@std/fmt@0.214": "jsr:@std/fmt@0.214.0",
       "jsr:@std/fs@0.214": "jsr:@std/fs@0.214.0",
       "jsr:@std/path@0.214": "jsr:@std/path@0.214.0",
       "jsr:@std/path@^0.214.0": "jsr:@std/path@0.214.0",
-      "jsr:@std/path@^0.221.0": "jsr:@std/path@0.221.0",
+      "jsr:@std/path@^1.0.2": "jsr:@std/path@1.0.2",
       "jsr:@webview/webview@^0.8.0": "jsr:@webview/webview@0.8.0",
-      "npm:@json-editor/json-editor@^2.14.1": "npm:@json-editor/json-editor@2.14.1",
+      "npm:@json-editor/json-editor@^2.14.1": "npm:@json-editor/json-editor@2.15.1",
+      "npm:@json-editor/json-editor@^2.15.1": "npm:@json-editor/json-editor@2.15.1",
       "npm:@types/json-editor": "npm:@types/json-editor@0.0.10"
     },
     "jsr": {
@@ -28,15 +27,6 @@
       },
       "@std/assert@0.214.0": {
         "integrity": "55d398de76a9828fd3b1aa653f4dba3eee4c6985d90c514865d2be9bd082b140"
-      },
-      "@std/assert@0.221.0": {
-        "integrity": "a5f1aa6e7909dbea271754fd4ab3f4e687aeff4873b4cef9a320af813adb489a"
-      },
-      "@std/cli@0.221.0": {
-        "integrity": "157c2f881f0f85a73d994e7668754aeeccdf597680bd9c65de9c6bcd670416ac",
-        "dependencies": [
-          "jsr:@std/assert@^0.221.0"
-        ]
       },
       "@std/encoding@0.214.0": {
         "integrity": "30a8713e1db22986c7e780555ffd2fefd1d4f9374d734bb41f5970f6c3352af5"
@@ -57,11 +47,8 @@
           "jsr:@std/assert@^0.214.0"
         ]
       },
-      "@std/path@0.221.0": {
-        "integrity": "0a36f6b17314ef653a3a1649740cc8db51b25a133ecfe838f20b79a56ebe0095",
-        "dependencies": [
-          "jsr:@std/assert@^0.221.0"
-        ]
+      "@std/path@1.0.2": {
+        "integrity": "a452174603f8c620bd278a380c596437a9eef50c891c64b85812f735245d9ec7"
       },
       "@webview/webview@0.8.0": {
         "integrity": "5fc571eac35026e8b5efd2bb6f483c2b4e3925e2244e9a9a66b0bc90bdef4983",
@@ -71,18 +58,18 @@
       }
     },
     "npm": {
-      "@json-editor/json-editor@2.14.1": {
-        "integrity": "sha512-Q6ACH6bHYtOCtM8AElkwzLYlTt9wzwzea2+ju40cl+s2IH0nM2r9nq3EX9jxSO9/oWJstJLnyuV95vomtSZYqw==",
+      "@json-editor/json-editor@2.15.1": {
+        "integrity": "sha512-Z4KFXpL7I9wrKD94c1PcIwFfCvUzYhwM0jH2ihP2OSH8wut0FnqzCfKCL0gdNHG3A2UVsyVJBoU9Iwsc0xB6zQ==",
         "dependencies": {
-          "core-js": "core-js@3.36.0"
+          "core-js": "core-js@3.37.1"
         }
       },
       "@types/json-editor@0.0.10": {
         "integrity": "sha512-zVE3AH4z5+kCxOcxwORNNpsCtvf+PWDijUsnYpfpoWmk5AxPqiEPOYkszWosrkHcPaK5+StOv4iuJ/ygXlGeFQ==",
         "dependencies": {}
       },
-      "core-js@3.36.0": {
-        "integrity": "sha512-mt7+TUBbTFg5+GngsAxeKBTl5/VS0guFeJacYge9OmHb+m058UwwIm41SE9T4Den7ClatV57B6TYTuJ0CX1MAw==",
+      "core-js@3.37.1": {
+        "integrity": "sha512-Xn6qmxrQZyB0FFY8E3bgRXei3lWDJHhvI+u0q9TKIYM49G8pAr0FgnnrFRAmsbptZL1yxRADVXn+x5AGsbBfyw==",
         "dependencies": {}
       }
     }
@@ -191,11 +178,11 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/cli@^0.221.0",
-      "jsr:@std/path@^0.221.0",
-      "jsr:@std/yaml@^0.221.0",
+      "jsr:@std/cli@^1.0.1",
+      "jsr:@std/path@^1.0.2",
+      "jsr:@std/yaml@^1.0.0",
       "jsr:@webview/webview@^0.8.0",
-      "npm:@json-editor/json-editor@^2.14.1"
+      "npm:@json-editor/json-editor@^2.15.1"
     ]
   }
 }

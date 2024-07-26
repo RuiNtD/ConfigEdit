@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -57,9 +57,9 @@
       </header>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/nonmin/jsoneditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
     <script type="module">
-      const editorOptions = {};
+      const editorOptions = {}; // PLACEHOLDER
       const $ = document.querySelector.bind(document);
       const editor = new JSONEditor($("#editor"), editorOptions);
       editor.on("change", () => {
